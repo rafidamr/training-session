@@ -44,9 +44,11 @@
                   <img src="img/" alt="ARC" id="logo" height="50">
               </div>
 -->
+            <center>
               <div class="brand-logo center">
                   <a class="title">Training Form ARC</a>
               </div>
+            </center>
             </div>
           </nav>
         </header>

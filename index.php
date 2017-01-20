@@ -68,6 +68,7 @@
                 </div>
               </div>
             </div>
+            <center>
             <div class="section">
                 <div class="row">
                     <div class="col l6 offset-l3 s12">
@@ -95,10 +96,11 @@
                   </div>
 -->
             </div>
+            </center>
             <div class="section">
                 <div class="row">
                     <div class="col l6 offset-l3 s12">
-                        <h5>Kenapa pilih sesi tsb</h5>
+                        <center><h5>Kenapa pilih sesi tsb</h5></center>
                     </div>
                 </div>
                   <div class="row">

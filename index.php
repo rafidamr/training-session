@@ -44,11 +44,9 @@
                   <img src="img/" alt="ARC" id="logo" height="50">
               </div>
 -->
-            <center>
-              <div class="brand-logo center">
-                  <a class="title">Training Form ARC</a>
-              </div>
-            </center>
+		<div class="brand-logo center">
+			<a class="title">Form Sesi</a>
+	 	</div>
             </div>
           </nav>
         </header>
@@ -58,15 +56,15 @@
             <div class="section">
             <form class="col s12" action="validation.php" method="post">
               <div class="row">
-                <div class="input-field col l6 offset-l3 s12">
-                  <input id="name" type="text" class="validate" name="nama">
-                  <label for="name">Nama</label>
+                <div class="input-field col l6 offset-l3 s10 offset-s1">
+                  <input placeholder="Nama" id="name" type="text" class="validate" name="nama">
+                  <label for="name"></label>
                 </div>
               </div>
               <div class="row">
-                <div class="input-field col l6 offset-l3 s12">
-                  <input id="nim" type="text" class="validate" name="nim">
-                  <label for="nim">NIM</label>
+                <div class="input-field col l6 offset-l3 s10 offset-s1">
+                  <input placeholder="NIM" id="nim" type="text" class="validate" name="nim">
+                  <label for="nim"></label>
                 </div>
               </div>
             </div>
@@ -107,8 +105,8 @@
                 </div>
                   <div class="row">
                     <div class="input-field col l6 offset-l3 s12">
-                      <textarea id="alasan" class="materialize-textarea" name="alasan"></textarea>
-                      <label for="alasan">Waktu . Tempat . Ngapain (contoh kalo pilih sesi 2 : 9:00-12:00 . Saraga . Latihan rutin unit Pasopati)</label>
+                      <textarea placeholder="Waktu . Tempat . Ngapain (contoh kalo pilih sesi 2 : 9:00-12:00 . Saraga . Latihan rutin unit Pasopati) " id="alasan" class="materialize-textarea" name="alasan"></textarea>
+                      <label for="alasan"></label>
                     </div>
                   </div>
                   <center>

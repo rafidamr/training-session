@@ -1,11 +1,11 @@
 <?php
 //	if($_SERVER['REQUEST_METHOD'] = "POST") //Added an if to keep the page secured
-	{   
+//	{   
         $nama =  $_POST['nama'];
         $nim =  $_POST['nim'];
         $sesi =  $_POST['sesi'];
         $alasan =  $_POST['alasan'];
-		$time = strftime("%X");//time
+	$time = strftime("%X");//time
         $date = strftime("%B %d, %Y");//date
 
 //		$con = mysqli_connect("localhost", "root", "", "test"); //Connect to server and database

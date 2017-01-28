@@ -38,14 +38,14 @@
     <body>
         <header class="page-header">
           <nav>
-            <div class="nav-wrapper blue lighter-3">
+            <div class="nav-wrapper black">
 <!--
               <div class="brand-logo">
                   <img src="img/" alt="ARC" id="logo" height="50">
               </div>
 -->
 		<div class="brand-logo center">
-			<a class="title">Form Sesi</a>
+			<a class="title"></a>
 	 	</div>
             </div>
           </nav>
@@ -53,17 +53,18 @@
 
         <main class="page-main">
             <div class="container">
+	    <div class="light center"><h4>Form Sesi</h4></div>
             <div class="section">
             <form class="col s12" action="validation.php" method="post">
               <div class="row">
                 <div class="input-field col l6 offset-l3 s10 offset-s1">
-                  <input placeholder="Nama" id="name" type="text" class="validate" name="nama">
+                  <input placeholder="Nama" id="name" type="text" class="validate" name="nama" required>
                   <label for="name"></label>
                 </div>
               </div>
               <div class="row">
                 <div class="input-field col l6 offset-l3 s10 offset-s1">
-                  <input placeholder="NIM" id="nim" type="text" class="validate" name="nim">
+                  <input placeholder="NIM" id="nim" type="text" class="validate" name="nim" required>
                   <label for="nim"></label>
                 </div>
               </div>
@@ -78,11 +79,11 @@
                   <div class="row">
                       <div class="col l6 offset-l3 s12">
                         <p>
-                          <input class="with-gap" name="sesi" type="radio" id="sesi-1" value="1"/>
+                          <input class="with-gap" name="sesi" type="radio" id="sesi-1" value="1" required/>
                           <label for="sesi-1">1 (8:00 - 11:30)</label>
                         </p>
                         <p>
-                          <input class="with-gap" name="sesi" type="radio" id="sesi-2" value="2"/>
+                          <input class="with-gap" name="sesi" type="radio" id="sesi-2" value="2" required/>
                           <label for="sesi-2">2 (12:30 - 16:00)</label>
                         </p>
                       </div>
@@ -105,19 +106,19 @@
                 </div>
                   <div class="row">
                     <div class="input-field col l6 offset-l3 s12">
-                      <textarea placeholder="Waktu . Tempat . Ngapain (contoh kalo pilih sesi 2 : 9:00-12:00 . Saraga . Latihan rutin unit Pasopati) " id="alasan" class="materialize-textarea" name="alasan"></textarea>
+                      <textarea placeholder="Waktu . Tempat . Ngapain (contoh kalo pilih sesi 2 : 9:00-12:00 . Saraga . Latihan rutin unit Pasopati) " id="alasan" class="materialize-textarea" name="alasan" required></textarea>
                       <label for="alasan"></label>
                     </div>
                   </div>
                   <center>
-                    <button class="btn waves-effect waves-light blue" type="submit" name="action">Submit</button>
+                    <button class="btn waves-effect waves-light amber darken-3" type="submit" name="action">Submit</button>
                   </center>
                 </form>
             </div>
             </div>
         </main>
 
-        <footer class="page-footer blue lighter-3">
+        <footer class="page-footer black">
           <div class="footer-copyright white-text">
             <div class="row">
                 <div class="col s12">By Rafid</div>

@@ -1,6 +1,6 @@
 <?php
 //	if($_SERVER['REQUEST_METHOD'] = "POST") //Added an if to keep the page secured
-//	{
+//	{   
         $nama =  $_POST['nama'];
         $nim =  $_POST['nim'];
         $sesi =  $_POST['sesi'];
@@ -15,4 +15,5 @@
 //      mysqli_query($con,"INSERT INTO training_session ( nama , nim , sesi , alasan , time , date ) VALUES ( '$nama' , '$nim' , '$sesi' , '$alasan' , '$time' , '$date' )");
 //    	}
 //    	header('Location: info.php');
+
 ?>

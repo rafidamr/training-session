@@ -34,6 +34,6 @@
     }
     
     }
-    header('Location: info.php');
+    header('Location: info.html');
 
 ?>

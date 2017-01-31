@@ -125,8 +125,8 @@
     <?php
 	   if($_SERVER['REQUEST_METHOD'] = "POST" and isset($_POST['action'])){ //Added an if to keep the page secured
 	
-	   $con = new mysqli("localhost", "root", "", "test"); //Connect to server and database
-        //$con = mysqli_connect("localhost", "debian-sys-maint", "whQavSxR95YLYv80", "oprec_arc_itb_ac_id");
+	//$con = new mysqli("localhost", "root", "", "test"); //Connect to server and database
+        $con = mysqli_connect("localhost", "debian-sys-maint", "whQavSxR95YLYv80", "oprec_arc_itb_ac_id");
         
         if (!$con) die("Connection failed: " . mysqli_connect_error()); //check connection
 

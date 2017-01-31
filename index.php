@@ -142,7 +142,7 @@
             $time = strftime("%X");//time
             $date = strftime("%B %d, %Y");//date
 
-            if($sesi == 1 or $sesi == 2 
+            if(($sesi == 1 or $sesi == 2) 
                and $nama != NULL and $nim != NULL and $alasan != NULL){
                 // Execute the statement.
                 $stmt->execute();

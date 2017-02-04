@@ -58,13 +58,13 @@
             <form class="col s12" method="post">
               <div class="row">
                 <div class="input-field col l6 offset-l3 s10 offset-s1">
-                  <input placeholder="Nama" id="name" type="text" class="validate" name="nama" pattern="(?=.*[a-zA-Z]).{0,}[a-zA-Z]{1,}" required>
+                  <input placeholder="Nama" id="name" type="text" class="validate" name="nama" pattern="(?=.*[a-zA-Z]).{0,}[a-zA-Z]{1,}" >
                   <label for="name"></label>
                 </div>
               </div>
               <div class="row">
                 <div class="input-field col l6 offset-l3 s10 offset-s1">
-                  <input placeholder="NIM" id="nim" type="text" class="validate" name="nim" pattern="[0-9]{8}" required>
+                  <input placeholder="NIM" id="nim" type="text" class="validate" name="nim" pattern="[0-9]{8}" >
                   <label for="nim"></label>
                 </div>
               </div>
@@ -79,11 +79,11 @@
                   <div class="row">
                       <div class="col l6 offset-l3 s12">
                         <p>
-                          <input class="with-gap" name="sesi" type="radio" id="sesi-1" value="1" required/>
+                          <input class="with-gap" name="sesi" type="radio" id="sesi-1" value="1" />
                           <label for="sesi-1">1 (8:00 - 11:30)</label>
                         </p>
                         <p>
-                          <input class="with-gap" name="sesi" type="radio" id="sesi-2" value="2" required/>
+                          <input class="with-gap" name="sesi" type="radio" id="sesi-2" value="2" />
                           <label for="sesi-2">2 (12:30 - 16:00)</label>
                         </p>
                       </div>
@@ -98,7 +98,7 @@
                 </div>
                   <div class="row">
                     <div class="input-field col l6 offset-l3 s12">
-                      <textarea placeholder="Waktu . Tempat . Ngapain (contoh kalo pilih sesi 2 : 9:00-12:00 . Saraga . Latihan rutin unit Pasopati) " id="alasan" class="materialize-textarea" name="alasan" pattern="[a-zA-Z]+\.[a-zA-Z]+\.+[a-zA-Z]" required></textarea>
+                      <textarea placeholder="Waktu . Tempat . Ngapain (contoh kalo pilih sesi 2 : 9:00-12:00 . Saraga . Latihan rutin unit Pasopati) " id="alasan" class="materialize-textarea" name="alasan" pattern="[a-zA-Z]+\.[a-zA-Z]+\.+[a-zA-Z]" ></textarea>
                       <label for="alasan"></label>
                     </div>
                   </div>
@@ -141,9 +141,16 @@
             $alasan =  $_POST['alasan'];
             $time = strftime("%X");//time
             $date = strftime("%B %d, %Y");//date
+<<<<<<< HEAD
 
             if(($sesi == 1 or $sesi == 2) 
                and $nama != NULL and $nim != NULL and $alasan != NULL){
+=======
+            
+            $valid = $nama == NULL or $nim == NULL or ($sesi != 1 and $sesi != 2) or $alasan == NULL or strlen($nama) == 0 or preg_match('~[0-9]~',$nama) or !is_numeric($nim) or strlen($nim) != 8 or strlen($alasan) == 0;
+    
+            if($valid==false){
+>>>>>>> origin
                 // Execute the statement.
                 $stmt->execute();
 

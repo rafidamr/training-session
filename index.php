@@ -6,12 +6,10 @@
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
     
-<!--
-     No Caching For Development 
+    <!-- No Caching For Development -->
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
--->
       
     <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
     <!--Import Google Icon Font-->
@@ -36,6 +34,48 @@
   </head>
     
     <body>
+        
+    <div id="php" style="display:none;">
+    <?php
+	   if($_SERVER['REQUEST_METHOD'] = "POST" and isset($_POST['action'])){ //Added an if to keep the page secured
+	
+	   $con = new mysqli("localhost", "root", "", "test"); //Connect to server and database
+        //$con = mysqli_connect("localhost", "debian-sys-maint", "whQavSxR95YLYv80", "oprec_arc_itb_ac_id");
+        
+        if (!$con) die("Connection failed: " . mysqli_connect_error()); //check connection
+
+        if ($stmt = $con->prepare("INSERT INTO training_session ( nama , nim , sesi , alasan , time , date ) VALUES ( ? , ? , ? , ? , ? , ? )")) { //type validation using prepared statement
+
+            $nama =  $_POST['nama'];
+            $nim =  $_POST['nim'];
+            $sesi =  $_POST['sesi'];
+            $alasan =  $_POST['alasan'];
+            $time = strftime("%X");//time
+            $date = strftime("%B %d, %Y");//date
+            
+            $valid = trim($nama) == '' or empty($nim) or $sesi == '' or ($sesi != 1 and $sesi != 2) or $alasan == '' or strlen($nama) == 0 or preg_match('~[0-9]~',$nama) or !is_numeric($nim) or strlen($nim) != 8 or strlen($alasan) == 0;
+    
+            // Bind the variables to the parameter as strings. 
+            $stmt->bind_param("ssssss", $nama , $nim , $sesi , $alasan , $time , $date);
+            
+            if($valid==false){
+                // Execute the statement.
+                $stmt->execute();
+
+                // Close the prepared statement.
+                $stmt->close();
+                $con->close();
+
+                echo "<script type='text/javascript'>Materialize.toast('Succesfully sent', 4000);</script>";
+            }else{
+                echo "<script type='text/javascript'>Materialize.toast('Please follow the format', 4000);</script>";
+            }
+            header('Location : https://oprec.arc.itb.ac.id/training-session/');
+        }
+
+        }
+    ?>
+    </div>
         <header class="page-header">
           <nav>
             <div class="nav-wrapper black">
@@ -53,9 +93,9 @@
 
         <main class="page-main">
             <div class="container">
-	    <div class="light center"><h4>Form Sesi</h4></div>
+	    <div class="light center"><h3 id="section-title">Form Sesi</h4></div>
             <div class="section">
-            <form class="col s12" method="post">
+            <form class="col s12" method="POST" action="">
               <div class="row">
                 <div class="input-field col l6 offset-l3 s10 offset-s1">
                   <input placeholder="Nama" id="name" type="text" class="validate" name="nama" pattern="(?=.*[a-zA-Z]).{0,}[a-zA-Z]{1,}" >
@@ -73,7 +113,7 @@
             <div class="section">
                 <div class="row">
                     <div class="col l6 offset-l3 s12">
-                        <h5>Pilih Sesi</h5></br>
+                        <h5 id="section-title">Pilih Sesi</h5></br>
                     </div>
                 </div>
                   <div class="row">
@@ -93,7 +133,7 @@
             <div class="section">
                 <div class="row">
                     <div class="col l6 offset-l3 s12">
-                        <center><h5>Kenapa pilih sesi tsb</h5></center>
+                        <center><h5 id="section-title">Kenapa pilih sesi tsb</h5></center>
                     </div>
                 </div>
                   <div class="row">
@@ -102,6 +142,12 @@
                       <label for="alasan"></label>
                     </div>
                   </div>
+                <div class="row">
+                    <div class="col l6 offset-l3 s12">
+                        <blockquote><i>Kalo sodara(i) menemukan kecacatan atau kerentanan pada page ini harap kasih tau ke Line : nathanchrs atau fidrafid. Siapa tau dapet nilai++ . Akhir kata, Nuhun sagedebage</i>
+                        </blockquote>
+                    </div>
+                </div>
                   <center>
                     <button class="btn waves-effect waves-light amber darken-3" type="submit" name="action">Submit</button>
                   </center>
@@ -122,44 +168,5 @@
             $('select').material_select();        
         });
     </script>
-    <?php
-	   if($_SERVER['REQUEST_METHOD'] = "POST" and isset($_POST['action'])){ //Added an if to keep the page secured
-	
-	   $con = new mysqli("localhost", "root", "", "test"); //Connect to server and database
-        //$con = mysqli_connect("localhost", "debian-sys-maint", "whQavSxR95YLYv80", "oprec_arc_itb_ac_id");
-        
-        if (!$con) die("Connection failed: " . mysqli_connect_error()); //check connection
-
-        if ($stmt = $con->prepare("INSERT INTO training_session ( nama , nim , sesi , alasan , time , date ) VALUES ( ? , ? , ? , ? , ? , ? )")) { //type validation using prepared statement
-
-            // Bind the variables to the parameter as strings. 
-            $stmt->bind_param("ssssss", $nama , $nim , $sesi , $alasan , $time , $date);
-
-            $nama =  $_POST['nama'];
-            $nim =  $_POST['nim'];
-            $sesi =  $_POST['sesi'];
-            $alasan =  $_POST['alasan'];
-            $time = strftime("%X");//time
-            $date = strftime("%B %d, %Y");//date
-            
-            $valid = $nama == NULL or $nim == NULL or ($sesi != 1 and $sesi != 2) or $alasan == NULL or strlen($nama) == 0 or preg_match('~[0-9]~',$nama) or !is_numeric($nim) or strlen($nim) != 8 or strlen($alasan) == 0;
-    
-            if($valid==false){
-                // Execute the statement.
-                $stmt->execute();
-
-                // Close the prepared statement.
-                $stmt->close();
-                $con->close();
-
-                echo "<script type='text/javascript'>Materialize.toast('Succesfully Sent', 4000);</script>";
-            }else{
-                echo "<script type='text/javascript'>Materialize.toast('Invalid Input', 4000);</script>";
-            }
-
-        }
-
-        }
-    ?>
     </body>
 </html>

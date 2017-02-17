@@ -13,7 +13,7 @@
       
     <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
     <!--Import Google Icon Font-->
-    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
     <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
     <!--Let browser know website is optimized for mobile-->
@@ -66,7 +66,7 @@
                 $stmt->close();
                 $con->close();
 
-                echo "<script type='text/javascript'>Materialize.toast('Succesfully sent', 4000);</script>";
+                echo "<script type='text/javascript'>Materialize.toast('Successfully sent', 4000);</script>";
             }else{
                 echo "<script type='text/javascript'>Materialize.toast('Please follow the format', 4000);</script>";
             }
@@ -97,7 +97,7 @@
             <form class="col s12" method="POST" action="">
               <div class="row">
                 <div class="input-field col l6 offset-l3 s10 offset-s1">
-                  <input placeholder="Nama" id="name" type="text" class="validate" name="nama" pattern="(?=.*[a-zA-Z]).{0,}[a-zA-Z]{1,}" required="true">
+                  <input placeholder="Nama" id="name" type="text" class="validate" name="nama" pattern="[a-zA-Z]+[\s]?[a-zA-Z]*[\s]?[a-zA-Z]*[\s]?[a-zA-Z]*[\s]?[a-zA-Z]*[\s]?[a-zA-Z]*[\s]?[a-zA-Z]*[\s]?[a-zA-Z]*[\s]?[a-zA-Z]*" required="true">
                   <label for="name"></label>
                 </div>
               </div>

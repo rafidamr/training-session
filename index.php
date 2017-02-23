@@ -13,7 +13,7 @@
       
     <link rel="shortcut icon" type="image/x-icon" href="img/favicon.png">
     <!--Import Google Icon Font-->
-    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <!--Import materialize.css-->
     <link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
     <!--Let browser know website is optimized for mobile-->
@@ -39,8 +39,8 @@
     <?php
 	   if($_SERVER['REQUEST_METHOD'] = "POST" and isset($_POST['action'])){ //Added an if to keep the page secured
 	
-	   $con = new mysqli("localhost", "root", "", "test"); //Connect to server and database
-        //$con = mysqli_connect("localhost", "debian-sys-maint", "whQavSxR95YLYv80", "oprec_arc_itb_ac_id");
+	//$con = new mysqli("localhost", "root", "", "test"); //Connect to server and database
+        $con = mysqli_connect("localhost", "debian-sys-maint", "whQavSxR95YLYv80", "oprec_arc_itb_ac_id");
         
         if (!$con) die("Connection failed: " . mysqli_connect_error()); //check connection
 
@@ -53,12 +53,12 @@
             $time = strftime("%X");//time
             $date = strftime("%B %d, %Y");//date
             
-            $valid = trim($nama) == '' or empty($nim) or $sesi == '' or ($sesi != 1 and $sesi != 2) or $alasan == '' or strlen($nama) == 0 or preg_match('~[0-9]~',$nama) or !is_numeric($nim) or strlen($nim) != 8 or strlen($alasan) == 0;
+            //$valid = trim($nama) == '' or empty($nim) or $sesi == '' or ($sesi != 1 and $sesi != 2) or $alasan == '' or strlen($nama) == 0 or preg_match('~[0-9]~',$nama) or !is_numeric($nim) or strlen($nim) != 8 or strlen($alasan) == 0;
     
             // Bind the variables to the parameter as strings. 
             $stmt->bind_param("ssssss", $nama , $nim , $sesi , $alasan , $time , $date);
             
-            if($valid==false){
+            if($sesi==1 or $sesi==2){
                 // Execute the statement.
                 $stmt->execute();
 

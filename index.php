@@ -6,7 +6,7 @@
     <meta name="msapplication-tap-highlight" content="no">
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width">
     
-    <!-- No Caching For Development -->
+    <!-- No Cache For Development -->
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate" />
     <meta http-equiv="Pragma" content="no-cache" />
     <meta http-equiv="Expires" content="0" />
@@ -39,8 +39,8 @@
     <?php
 	   if($_SERVER['REQUEST_METHOD'] = "POST" and isset($_POST['action'])){ //Added an if to keep the page secured
 	
-	//$con = new mysqli("localhost", "root", "", "test"); //Connect to server and database
-        $con = mysqli_connect("localhost", "debian-sys-maint", "whQavSxR95YLYv80", "oprec_arc_itb_ac_id");
+	$con = new mysqli("localhost", "root", "", "test"); //Connect to server and database
+        //$con = mysqli_connect("localhost", "xxxxx", "xxxx", "xxxx");
         
         if (!$con) die("Connection failed: " . mysqli_connect_error()); //check connection
 

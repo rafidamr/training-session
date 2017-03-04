@@ -144,7 +144,7 @@
                   </div>
                 <div class="row">
                     <div class="col l6 offset-l3 s12">
-                        <blockquote><i>Kalo sodara(i) menemukan kecacatan atau kerentanan pada page ini harap kasih tau ke Line : nathanchrs atau fidrafid. Siapa tau dapet nilai++ . Akhir kata, Nuhun sagedebage</i>
+                        <blockquote>Semangat UTS :)
                         </blockquote>
                     </div>
                 </div>

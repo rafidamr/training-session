@@ -40,7 +40,7 @@
 	   if($_SERVER['REQUEST_METHOD'] = "POST" and isset($_POST['action'])){ //Added an if to keep the page secured
 	
 	//$con = new mysqli("localhost", "root", "", "test"); //Connect to server and database
-        $con = mysqli_connect("localhost", "debian-sys-maint", "whQavSxR95YLYv80", "oprec_arc_itb_ac_id");
+        //$con = mysqli_connect("localhost", "debian-sys-maint", "whQavSxR95YLYv80", "oprec_arc_itb_ac_id");
         
         if (!$con) die("Connection failed: " . mysqli_connect_error()); //check connection
 
@@ -60,13 +60,13 @@
             
             if($sesi==1 or $sesi==2){
                 // Execute the statement.
-                $stmt->execute();
+                //$stmt->execute();
 
                 // Close the prepared statement.
                 $stmt->close();
                 $con->close();
 
-                echo "<script type='text/javascript'>Materialize.toast('Succesfully sent', 4000);</script>";
+                echo "<script type='text/javascript'>Materialize.toast('Successfully sent', 4000);</script>";
             }else{
                 echo "<script type='text/javascript'>Materialize.toast('Please follow the format', 4000);</script>";
             }
@@ -144,7 +144,7 @@
                   </div>
                 <div class="row">
                     <div class="col l6 offset-l3 s12">
-                        <blockquote><i>Kalo sodara(i) menemukan kecacatan atau kerentanan pada page ini harap kasih tau ke Line : nathanchrs atau fidrafid. Siapa tau dapet nilai++ . Akhir kata, Nuhun sagedebage</i>
+                        <blockquote><center><b>Semangat UTS :)</b></center>
                         </blockquote>
                     </div>
                 </div>

@@ -35,12 +35,12 @@
     
     <body>
         
-    <div id="php" style="display:none;">
+    <div id="php" >
     <?php
 	   if($_SERVER['REQUEST_METHOD'] = "POST" and isset($_POST['action'])){ //Added an if to keep the page secured
 	
 	//$con = new mysqli("localhost", "root", "", "test"); //Connect to server and database
-        //$con = mysqli_connect("localhost", "debian-sys-maint", "whQavSxR95YLYv80");
+        $con = mysqli_connect("localhost", "debian-sys-maint", "whQavSxR95YLYv80");
         
         if (!$con) die("Connection failed: " . mysqli_connect_error()); //check connection
 
@@ -58,9 +58,9 @@
             // Bind the variables to the parameter as strings. 
             $stmt->bind_param("ssssss", $nama , $nim , $sesi , $alasan , $time , $date);
             
-            if($sesi==1 or $sesi==2){
+            if($sesi == 1 or $sesi == 2){
                 // Execute the statement.
-                //$stmt->execute();
+                $stmt->execute();
 
                 // Close the prepared statement.
                 $stmt->close();
@@ -93,7 +93,7 @@
 
         <main class="page-main">
             <div class="container">
-	    <div class="light center"><h3 id="section-title">Form Sesi</h4></div>
+	    <div class="light center"><h3 id="section-title">Form Rencana Masa Depan</h4></div>
             <div class="section">
             <form class="col s12" method="POST" action="">
               <div class="row">
@@ -113,18 +113,18 @@
             <div class="section">
                 <div class="row">
                     <div class="col l6 offset-l3 s12">
-                        <h5 id="section-title">Pilih Sesi</h5></br>
+                        <h5 id="section-title">Bagaimana kelanjutanmu?</h5></br>
                     </div>
                 </div>
                   <div class="row">
                       <div class="col l6 offset-l3 s12">
                         <p>
                           <input class="with-gap" name="sesi" type="radio" id="sesi-1" value="1" />
-                          <label for="sesi-1">1 (8:00 - 11:30)</label>
+                          <label for="sesi-1">Lanjut kaderisasi (termasuk ikut tubes)</label>
                         </p>
                         <p>
                           <input class="with-gap" name="sesi" type="radio" id="sesi-2" value="2" />
-                          <label for="sesi-2">2 (12:30 - 16:00)</label>
+                          <label for="sesi-2">Hanya ikut tubes (fasilitas dari ARC berupa VM remote siap pakai)</label>
                         </p>
                       </div>
                   </div>
@@ -133,21 +133,15 @@
             <div class="section">
                 <div class="row">
                     <div class="col l6 offset-l3 s12">
-                        <center><h5 id="section-title">Kenapa pilih sesi tsb</h5></center>
+                        <center><h5 id="section-title">Alasanmu</h5></center>
                     </div>
                 </div>
                   <div class="row">
                     <div class="input-field col l6 offset-l3 s12">
-                      <textarea placeholder="Waktu . Tempat . Ngapain (contoh kalo pilih sesi 2 : 9:00-12:00 . Saraga . Latihan rutin unit Pasopati) " id="alasan" class="materialize-textarea" name="alasan" pattern="[a-zA-Z]+\.[a-zA-Z]+\.+[a-zA-Z]" ></textarea>
+                      <textarea placeholder="Tolong kasih alasan kenapa pilih no 1 atau 2" id="alasan" class="materialize-textarea" name="alasan"></textarea>
                       <label for="alasan"></label>
                     </div>
                   </div>
-                <div class="row">
-                    <div class="col l6 offset-l3 s12">
-                        <blockquote>Semangat UTS :)
-                        </blockquote>
-                    </div>
-                </div>
                   <center>
                     <button class="btn waves-effect waves-light amber darken-3" type="submit" name="action">Submit</button>
                   </center>
@@ -159,7 +153,7 @@
         <footer class="page-footer black">
           <div class="footer-copyright white-text">
             <div class="row">
-                <div class="col s12">By Rafid</div>
+                <div class="col s12"></div>
             </div>
           </div>
         </footer>

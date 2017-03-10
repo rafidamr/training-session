@@ -35,7 +35,7 @@
     
     <body>
         
-    <div id="php" >
+    <div id="php" style="display:none;">
     <?php
 	   if($_SERVER['REQUEST_METHOD'] = "POST" and isset($_POST['action'])){ //Added an if to keep the page secured
 	
@@ -66,7 +66,7 @@
                 $stmt->close();
                 $con->close();
 
-                echo "<script type='text/javascript'>Materialize.toast('Succesfully sent', 4000);</script>";
+                echo "<script type='text/javascript'>Materialize.toast('Successfully sent', 4000);</script>";
             }else{
                 echo "<script type='text/javascript'>Materialize.toast('Please follow the format', 4000);</script>";
             }
